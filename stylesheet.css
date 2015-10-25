@@ -1,0 +1,28 @@
+#move_up {
+	position: fixed;
+	top: 0;
+	right: 35px;
+	border: 3px solid;
+}
+
+#move_down {
+	position: fixed;
+	top: 50px;
+	right: 35px;
+	border: 3px solid;
+}
+
+#move_left{
+	position: fixed;
+	top: 25px;
+	right: 50px;
+	border: 3px solid;
+}
+
+#move_right{
+	position: fixed;
+	top: 25px;
+	right: 15px;
+	border: 3px solid;
+}
+
