@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<title>main game unit</title>
+	<script type="text/javascript" src="d3.v3.min.js"></script>
+	<link rel="stylesheet" href="mobile.css" type="text/css" media="only screen and (max-width: 600px)"/>
+	<link rel="stylesheet" href="stylesheet.css" type="text/css" media="only screen and (min-width: 601px)"/>
+</head>
+
+<body>
+	<script>
+		var dataArray = [20,40, 30, 5 ,50, 60];
+		
+		var width = screen.width;
+		var height = screen.height,
+			char_x = screen.width/2,
+			char_y = screen.height/2;
+		
+		var widthScale = d3.scale.linear() // Most common scale
+							.domain([0,60])  //min and max of your VALUES..
+							.range([0, 500]); //should be scaled to this range
+							
+		var color = d3.scale.linear()
+							.domain([0,60])
+							.range(["red","blue"]);
+							
+		var canvas = d3.select("body")  //create a canvas object that 
+				.append("svg")			//other things will be attached to
+				.attr("width",width)
+				.attr("height",height);
+
+	</script>
+	<script type="text/javascript" src="main_character.js"></script>
+
+		<input id="move_up" type="button" value="^" onclick="player_character.moveUp(10)" />
+		<input id="move_left" type="button" value="<-" onclick="player_character.moveLeft(10)" />
+		<input id="move_right" type="button" value="->" onclick="player_character.moveRight(10)" />
+		<input id="move_down" type="button" value="v" onclick="player_character.moveDown(10)" />
+
+</body>
+</html>
