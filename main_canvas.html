@@ -9,20 +9,10 @@
 
 <body>
 	<script>
-		var dataArray = [20,40, 30, 5 ,50, 60];
-		
-		var width = screen.width;
-		var height = screen.height,
+		var width = screen.width,
+			height = screen.height,
 			char_x = screen.width/2,
-			char_y = screen.height/2;
-		
-		var widthScale = d3.scale.linear() // Most common scale
-							.domain([0,60])  //min and max of your VALUES..
-							.range([0, 500]); //should be scaled to this range
-							
-		var color = d3.scale.linear()
-							.domain([0,60])
-							.range(["red","blue"]);
+			char_y = screen.height/2;	
 							
 		var canvas = d3.select("body")  //create a canvas object that 
 				.append("svg")			//other things will be attached to
