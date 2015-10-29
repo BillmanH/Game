@@ -16,11 +16,11 @@ function get_random_screen_position(max,num){
 function get_random_movement(max){
 	var l_marg = 0,
 		u_marg = max-10,
-		tmp = Math.floor(Math.random() * max - max)
+		tmp = Math.floor(Math.random() * max - Math.floor(Math.random() * max))
 	return tmp;
 }	
 
-var num_zombies = 100;
+var num_zombies = 1;
 var zombie_x =get_random_screen_position(width,num_zombies);
 var zombie_y = get_random_screen_position(height,num_zombies);
 zombie_data = []
@@ -65,4 +65,4 @@ function wander() {
   })();
 }
 
-console.log(get_random_movement(5));
+console.log(d3.select("circle.player"));
