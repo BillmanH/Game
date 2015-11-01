@@ -9,7 +9,7 @@ I wanted to create a Zombie Game that leverages the LinkedIn API and D3.js libra
 	- Players who still have living accounts will be introduced as NPCs in other people's games.
 
 ###Problems:
-	- Zombie wander function isn't working. 
+	- Zombie wander function isn't working. :(
 	- function(repeat) seems to overload the browser, I wonder if there is a better way to do this. 
 	
 ## Dungeon Craw: Turn based "Net - Hack" game
