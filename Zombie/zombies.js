@@ -31,7 +31,7 @@ for(var i=0;i<=num_zombies;i++){
 	item["y"] = zombie_y[i];
 	zombie_data.push(item);
 }
-
+console.log(zombie_data)
 
 var zombie_tooltip = d3.select("body")
 	.append("div")
@@ -52,14 +52,17 @@ var zombies = canvas.selectAll("circle.zombie")
 						.on("mousemove", function(){return zombie_tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
 						.on("mouseout", function(){return zombie_tooltip.style("visibility", "hidden");})
 
+
+console.log(get_random_movement(5))
 zombies.transition().each(wander);
-	
+
+
 function wander() {
   var circle = d3.select(this);
   (function repeat() {
     circle = circle.transition()
-		.attr("cy", function(d){if (circle["cx"] < 5){return 5} else {return circle["cx"]+get_random_movement(5)}})
-        .attr("cx", function(d){if (circle["cy"] < 5){return 5} else {return circle["cy"]+get_random_movement(5)}})
+		.attr("cx", function(d){if (circle["cx"] < 5){return 5} else {return circle["cx"]+get_random_movement(5)}})
+        .attr("cy", function(d){if (circle["cy"] < 5){return 5} else {return circle["cy"]+get_random_movement(5)}})
         .each("end", repeat);
   })();
 }
