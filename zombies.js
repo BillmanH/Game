@@ -20,7 +20,7 @@ function get_random_movement(max){
 	return tmp;
 }	
 
-var num_zombies = 1;
+var num_zombies = 100;
 var zombie_x =get_random_screen_position(width,num_zombies);
 var zombie_y = get_random_screen_position(height,num_zombies);
 zombie_data = []
@@ -56,13 +56,11 @@ zombies.transition().each(wander);
 	
 function wander() {
   var circle = d3.select(this);
-  var speed = 1;
   (function repeat() {
     circle = circle.transition()
-		.attr("cy", function(d){if (d["y"] < 5){return 5} else {return d["y"]+get_random_movement(5)}})
-        .attr("cx", function(d){if (d["x"] < 5){return 5} else {return d["x"]+get_random_movement(5)}})
+		.attr("cy", function(d){if (circle["cx"] < 5){return 5} else {return circle["cx"]+get_random_movement(5)}})
+        .attr("cx", function(d){if (circle["cy"] < 5){return 5} else {return circle["cy"]+get_random_movement(5)}})
         .each("end", repeat);
   })();
 }
 
-console.log(d3.select("circle.player"));
