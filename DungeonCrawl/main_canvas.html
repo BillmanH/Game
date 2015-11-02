@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>main game unit</title>
+	<script type="text/javascript" src="../d3.v3.min.js"></script>
+	<!-- <link rel="stylesheet" href="mobile.css" type="text/css" media="only screen and (max-width: 600px)"/> -->
+	<!-- <link rel="stylesheet" href="stylesheet.css" type="text/css" media="only screen and (min-width: 601px)"/> -->
+</head>
+
+<body onkeypress="processKey(event)">
+	<script>
+		var width = screen.width,
+			height = screen.height,
+			char_x = screen.width/2,
+			char_y = screen.height/2;	
+							
+		var canvas = d3.select("body")  
+				.append("svg")			
+				.attr("width",width)
+				.attr("height",height);
+	</script>
+<!-- independent libraries for game objects -->
+	<script type="text/javascript" src="main_character.js"></script>
+	<script type="text/javascript" src="main_engine.js"></script>
+
+
+</body>
+</html>
