@@ -1,6 +1,7 @@
 function processKey(event){
 	console.log(event.keyCode);
 	switch(event.keyCode){
+		// movement keys
 		case 56:
 			player_character.moveUp(10);
 			break;
@@ -25,6 +26,12 @@ function processKey(event){
 		case 57:
 			player_character.moveUpRight(10);
 			break;
+		//inventory
+		case 105:
+			if (player_inventory_window.isOpen){
+			close_inventory();
+			} else {open_inventory()};
+			break;			
 	}
 }
 
