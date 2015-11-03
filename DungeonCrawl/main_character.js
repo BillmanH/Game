@@ -66,7 +66,7 @@ player_character.moveRight = function(speed){
 open_inventory = function(){
 	player_inventory_window.transition()
 		.attr({"width": 300,
-				"height":600});
+				"height":580});
 	player_inventory_window.isOpen = true}
 
 close_inventory = function(){
