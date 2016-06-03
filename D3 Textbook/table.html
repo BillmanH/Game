@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Selection Iteration</title>
+	<link rel="stylesheet" type="text/css" href="../style.css"/>
+	<script type="text/javascript" src="../d3.v3.min.js"></script>
+</head>
+<body>
+
+	<table class="table">
+	<thead>
+	<tr>
+		<th>Time</th>
+		<th>Type</th>
+		<th>Amout</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>10:22</td>
+			<td>Purchase</td>
+			<td>$10.00</td>
+		</tr>
+		<tr>
+			<td>12:12</td>
+			<td>Purchase</td>
+			<td>$12.50</td>
+		</tr>
+		<tr>
+			<td>14:11</td>
+			<td>Expense</td>
+			<td>$9.70</td>
+		</tr>
+	</tbody>
+	</table>
+
+<script type="text/javascript">
+
+	var rows = d3.selectAll("tr");
+	console.log(rows)
+	
+	var headerElement = rows[0][0];
+	
+	d3.select(rows[0][1]).attr("class","table-row-odd");
+	d3.select(rows[0][2]).attr("class","table-row-even");
+	d3.select(rows[0][3]).attr("class","table-row-odd");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Simple D3 Dev environment</title>
+	<link rel="stylesheet" type="text/css" href="../style.css"/>
+	<script type="text/javascript" src="../d3.v3.min.js"></script>
+</head>
+<body>
+
+<p id="target"></p>
+<p id="t2"></p>
+<script type="text/javascript">
+	d3.select("p#target")
+		.text("Hello world")
+	d3.select("p").attr("foo","goo");//assigns second argument to first 
+	console.log(d3.select("p").attr("foo"))//if only one attribute in .attr() returns the value.
+	console.log(d3.select("p").attr("bar"))//null, no an error
+	
+	console.log(d3.select("p").classed("goo"))  //returns boolean if class is in p
+	d3.select("p#t2").classed("goo",true);
+	d3.select("P#t2").classed("goo",myfunction)
+	
+	function myFunction(){
+		return true
+	}
+</script>
+
+</body>
+</html>
