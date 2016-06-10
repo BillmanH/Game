@@ -20,7 +20,7 @@ function get_random_movement(max){
 	return tmp;
 }	
 
-var num_zombies = 100;
+var num_zombies = 10;
 var zombie_x =get_random_screen_position(width,num_zombies);
 var zombie_y = get_random_screen_position(height,num_zombies);
 zombie_data = []
@@ -38,6 +38,14 @@ var zombie_tooltip = d3.select("body")
 	.style("position", "absolute")
 	.style("z-index", "10")
 	.style("visibility", "hidden");
+
+function wander() {
+  var circle = d3.selectAll("circle.zombie")
+    .transition()
+		.attr("cx", function(d,i){if (circle[i]["x"] < 5){return 5} else {return circle[i]["x"]+get_random_movement(5)}})
+        .attr("cy", function(d,i){if (circle[i]["y"] < 5){return 5} else {return circle[i]["y"]+get_random_movement(5)}})
+        .call(wander);
+}
 	
 var zombies = canvas.selectAll("circle.zombie")
 					.data(zombie_data)
@@ -53,17 +61,9 @@ var zombies = canvas.selectAll("circle.zombie")
 						.on("mouseout", function(){return zombie_tooltip.style("visibility", "hidden");})
 
 
-console.log(get_random_movement(5))
-zombies.transition().each(wander);
+wander();
 
 
-function wander() {
-  var circle = d3.select(this);
-  (function repeat() {
-    circle = circle.transition()
-		.attr("cx", function(d){if (circle["cx"] < 5){return 5} else {return circle["cx"]+get_random_movement(5)}})
-        .attr("cy", function(d){if (circle["cy"] < 5){return 5} else {return circle["cy"]+get_random_movement(5)}})
-        .each("end", repeat);
-  })();
-}
+
+
 
